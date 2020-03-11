@@ -1,6 +1,6 @@
 const dbConnection = require("../dbConnection");
-const parents = [];
-const getParents = parentId =>
+// const parents = [];
+const getParents = (parentId, parents = []) =>
   !parentId
     ? []
     : dbConnection
@@ -10,7 +10,9 @@ const getParents = parentId =>
         )
         .then(res => {
           if (res.rows.length) parents.push(res.rows[0]);
-          return res.rows.length ? getParents(res.rows[0].parent_id) : parents;
+          return res.rows.length
+            ? getParents(res.rows[0].parent_id, parents)
+            : parents;
         })
         .catch(err => err);
 
