@@ -1,9 +1,10 @@
 import React from "react";
+import Tree from "./components/tree";
 import logo from "./logo.svg";
 import "./App.css";
 
 function App() {
-  return <h1>dalal tree loading...</h1>;
+  return <Tree />;
 }
 
 export default App;

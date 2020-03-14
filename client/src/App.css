@@ -1,3 +1,18 @@
+section {
+  margin-right: 20px;
+}
+.div {
+  display: inline-flex;
+}
+h5 {
+  text-align: center;
+  background-color: cyan;
+  border: solid;
+  padding: 10px;
+  border-radius: 17px;
+}
+
+/*
 .App {
   text-align: center;
 }
@@ -36,3 +51,4 @@
     transform: rotate(360deg);
   }
 }
+*/
