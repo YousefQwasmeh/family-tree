@@ -4,16 +4,16 @@ import axios from "axios";
 class Tree extends React.Component {
   state = {
     tree: {},
-    person: { id: 0, name: "loading..." },
+    person: { id: 17, name: "loading..." },
     maxWidth: 0
   };
   componentDidMount() {
     this.getPerson(17);
-    axios("http://localhost:4000/api/tree").then(({ data }) => {
+    axios(`/api/tree/${this.state.person.id}`).then(({ data }) => {
       this.setState({ tree: data }, () => {
         setTimeout(() => {
-          const big = document.getElementsByClassName("17")
-            ? document.getElementsByClassName("17")[0]
+          const big = document.getElementsByClassName(`${this.state.person.id}`)
+            ? document.getElementsByClassName(`${this.state.person.id}`)[0]
             : null;
           this.setState({
             maxWidth: big && big.clientWidth ? big.clientWidth : 0
@@ -23,7 +23,7 @@ class Tree extends React.Component {
     });
   }
   getPerson = personId => {
-    axios(`http://localhost:4000/api/person/${personId}`)
+    axios(`/api/person/${personId}`)
       .then(({ data }) => this.setState({ person: data[0] }))
       .catch(err => {
         console.log(err);
