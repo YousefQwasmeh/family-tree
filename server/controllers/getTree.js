@@ -10,7 +10,7 @@ const getChildren = childId => {
 };
 
 const getTree = (req, res) => {
-  getChildren(1)
+  getChildren(req.params.rootId)
     .then(a => res.send(tree))
     .catch(err => res.send("err"));
 };

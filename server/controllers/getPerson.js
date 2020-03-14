@@ -1,7 +1,7 @@
 const getPersonQuery = require("../database/queries/getPerson");
 
 const getPerson = (req, res) => {
-  getPersonQuery(7)
+  getPersonQuery(req.params.personId)
     .then(person => {
       res.send(person);
     })

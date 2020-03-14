@@ -7,8 +7,8 @@ const getPerson = require("./getPerson");
 router.get("/", (req, res) => {
   res.send("00000");
 });
-router.get("/get-parents", getParents);
-router.get("/get-children", getChildren);
-router.get("/get-tree", getTree);
-router.get("/get-person", getPerson);
+router.get("/parents/childId", getParents);
+router.get("/children/parentId", getChildren);
+router.get("/tree/:rootId", getTree);
+router.get("/person/:personId", getPerson);
 module.exports = router;
