@@ -1,7 +1,7 @@
 const getParentsQuery = require("../database/queries/getParents");
 
 const getParents = (req, res) => {
-  getParentsQuery(11)
+  getParentsQuery(req.params.childId)
     .then(parents => {
       res.send(parents.map(a => a.name));
     })
