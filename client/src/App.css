@@ -13,10 +13,30 @@ h5 {
 }
 .level-up {
   width: fit-content;
+  padding: 10px;
+  margin: 0 !important;
 }
 #root {
   margin: auto;
   width: fit-content;
+}
+.vertical-line {
+  margin: auto;
+  width: 0px;
+  height: 80px;
+  border: solid 2px;
+}
+.horizontal-line {
+  margin: auto;
+  width: 86%;
+  height: 0px;
+  border: solid 2px;
+}
+h5 {
+  margin-top: 0;
+  margin-bottom: 0;
+  width: 100px;
+  margin: auto;
 }
 /*
 .App {
