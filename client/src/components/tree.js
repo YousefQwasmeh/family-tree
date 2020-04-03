@@ -53,9 +53,10 @@ class Tree extends React.Component {
     return (
       <div className={"div " + rootId}>
         {this.state.tree[rootId]
-          ? this.state.tree[rootId].map(person => {
+          ? this.state.tree[rootId].map((person, i) => {
               return (
                 <section>
+                  <div className='vertical-line'></div>
                   <h5
                     onClick={() => {
                       this.setState({ person }, () => {
@@ -70,8 +71,19 @@ class Tree extends React.Component {
                       });
                     }}
                   >
-                    {person.name}
+                    <img
+                      style={{ margin: "auto", width: "80px" }}
+                      src='https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcQnOWfz4ywhOGvfOZ7TbMk3W1Bmcdt9cV-hD5XULcQYNBoiY-v-&usqp=CAU'
+                    />
+                    <p>{person.name}</p>
                   </h5>
+                  {this.state.tree[person.id].length > 1 ? (
+                    <div className='vertical-line'></div>
+                  ) : null}
+                  {this.state.tree[person.id].length > 1 ? (
+                    <div className='horizontal-line'></div>
+                  ) : null}
+
                   {this.drawTree(person.id)}
                 </section>
               );
@@ -92,9 +104,21 @@ class Tree extends React.Component {
         >
           lєvєl up⇪
         </h5>
-        <h5 style={{ width: this.state.maxWidth || "auto" }}>
-          {this.state.person.name}
+        <h5>
+          <img
+            style={{ margin: "auto", width: "80px" }}
+            src='https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcQnOWfz4ywhOGvfOZ7TbMk3W1Bmcdt9cV-hD5XULcQYNBoiY-v-&usqp=CAU'
+          />
+          <p>{this.state.person.name}</p>
         </h5>
+        {this.state.tree[this.state.person.id] &&
+        this.state.tree[this.state.person.id].length > 1 ? (
+          <div className='vertical-line'></div>
+        ) : null}
+        {this.state.tree[this.state.person.id] &&
+        this.state.tree[this.state.person.id].length > 1 ? (
+          <div className='horizontal-line'></div>
+        ) : null}
         {this.drawTree(this.state.person.id)}
       </>
     );

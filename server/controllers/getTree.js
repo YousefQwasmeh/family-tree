@@ -1,5 +1,5 @@
 const getChildrenQuery = require("../database/queries/getChildren");
-const tree = {};
+let tree = {};
 const getChildren = childId => {
   return getChildrenQuery(childId)
     .then(children => {
@@ -10,6 +10,7 @@ const getChildren = childId => {
 };
 
 const getTree = (req, res) => {
+  tree = {};
   getChildren(req.params.rootId)
     .then(a => res.send(tree))
     .catch(err => res.send("err"));
